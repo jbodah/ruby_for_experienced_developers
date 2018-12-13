@@ -179,76 +179,76 @@ Gems are available that provide more advanced data structures (trees, graphs, th
 
 ## Control Flow
 
-  Ruby has `if`, `unless`, ternary operators, and `case`
+Ruby has `if`, `unless`, ternary operators, and `case`
 
-  ```rb
-  if applies?
+```rb
+if applies?
   puts "it applies"
-  else
+else
   puts "it doesn't apply"
-  end
+end
 
 # `unless` == not if
 # You should generally avo
-  unless applies?
+unless applies?
   puts "it doesn't apply"
-  end
+end
 
 # both `if` and `unless` can be used as a suffix for one-liners
-  puts "it applies" if applies?
+puts "it applies" if applies?
 
 # ternary
-  msg = applies? ? "it applies" : "it doesn't apply"
-  puts msg
-  ```
+msg = applies? ? "it applies" : "it doesn't apply"
+puts msg
+```
 
-  `case` is a bit unique. The `#===` method of each expression in a `when` is called for comparison. This is a form of duck-typing. You can implement `#===` on a custom class to get some interesting behavior (Google it for more detail):
+`case` is a bit unique. The `#===` method of each expression in a `when` is called for comparison. This is a form of duck-typing. You can implement `#===` on a custom class to get some interesting behavior (Google it for more detail):
 
-    ```rb
-    case object
-    when Integer
-    :int
-    when String
-    :string
-    else
-    :no_idea
-    end
-    ```
+```rb
+case object
+when Integer
+  :int
+when String
+  :string
+else
+  :no_idea
+end
+```
 
 ## Loops
 
-    Ruby has `for` loops but you should almost never use them. You can get the same behavior as a `for` loop with `.each` and `.with_index`
+Ruby has `for` loops but you should almost never use them. You can get the same behavior as a `for` loop with `.each` and `.with_index`
 
-    ```rb
-    [1,2,3].each do |num|
-#...
-    end
+```rb
+[1,2,3].each do |num|
+  #...
+end
 
-    [1,2,3].each.with_index do |num, idx|
-#...
-    end
+[1,2,3].each.with_index do |num, idx|
+  #...
+end
 
-    while applies?
-#...
-    break
-    end
+while applies?
+  #...
+  break
+end
 
-    do_something while applies?
+do_something while applies?
 
-    until applies?
-#...
-    break
-    end
+until applies?
+  #...
+  break
+end
 
-    do_something until applies?
+do_something until applies?
 
-    loop do
-#...
-    break
-    end
-    ```
+loop do
+  #...
+  break
+end
+```
 
-    `next` is like `continue` in other languages
+`next` is like `continue` in other languages
 
 ## Classes
 
@@ -436,7 +436,7 @@ mr_bigglesworth.public_send(:hairy?)
 
 ["h", "e", "l", "l", "o"].public_send(:first, 2)
 #=> ["h", "e"]
-```.
+```
 
 You should try to avoid `send` in production and test code so you don't confuse someone who is reading or refactoring your code.
 They might assume a `private` method is not used anywhere except internally but a `send` could make that untrue
