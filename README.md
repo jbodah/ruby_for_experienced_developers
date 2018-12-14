@@ -158,7 +158,7 @@ h = {name: "greg", age: 40}
 h[:name]
 #=> "greg"
 
-h[:name] = "bob:
+h[:name] = "bob"
 h[:name]
 #=> "bob"
 
