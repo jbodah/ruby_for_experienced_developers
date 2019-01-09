@@ -38,6 +38,7 @@ This guide is not meant to be complete but instead to expose you to the most imp
 ## Documentation
 
 * [ruby-doc](https://ruby-doc.org/)
+* [The Ruby Reference](https://rubyreferences.github.io/rubyref/)
 * [rubygems](https://rubygems.org/)
 
 ## Running Programs
