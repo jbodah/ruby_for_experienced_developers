@@ -291,7 +291,7 @@ class SedanMaker < CarMaker
 end
 ```
 
-By default methods are public. You can add access modifiers (which are positional) to limit scope. `public`, `protected, and `private` are ther available modifiers
+By default methods are public. You can add access modifiers (which are positional) to limit scope. `public`, `protected`, and `private` are ther available modifiers
 
 ```rb
 class CarMaker
