@@ -931,12 +931,12 @@ If you're familiar with IO in other languages then IO in Ruby should be pretty s
 
 ## Concurrency
 
-A Ruby process on MRI cannot run parallely on mutliple cores due to the GIL which only allows Ruby to process a single VM instruction at a time.
+A Ruby thread on MRI cannot run in parallel on mutliple cores due to the GIL which wraps the VM execution in a mutex.
 This means that in order to get parallel CPU time you need to use multiple processes.
 Ruby does however support concurrent IO (i.e. you can listen for multiple outstanding requests at a time).
 If you are familiar with `select` and similar commands then these functions (which reside in `IO`) should feel familiar
 
-Ruby does support green threads and will context switch between them. The `Queue` data structure is thread-safe and there are `ConditionVariable` and `Mutex` classes you can take advantage of.
+If you use threads Ruby will still context switch between them (with the caveat of the GIL). The `Queue` data structure is thread-safe and there are `ConditionVariable` and `Mutex` classes you can take advantage of.
 One simple way to use threads to get parallel execution is either via IO or to have threads that spawn subprocesses (each thread waits on a subprocess).
 You should assume by default that your code in not thread safe, and many gems are not thread safe.
 With a small bit of work using the tools listed above you can create a simple synchronized implementation of any class though using something like `MonitorMixin` (see docs)
@@ -947,6 +947,8 @@ Multi-processing works similar to other languages. Take a look at `Open3.popen3`
 See [this overview](https://medium.com/zendesk-engineering/running-a-child-process-in-ruby-properly-febd0a2b6ec8)
 
 If you still don't want to use multiple processes, want good concurrency primitives (actors, channels, thread safety, pooling), and are okay with the caveats about the GIL then take a look at [concurrent-ruby](https://github.com/ruby-concurrency/concurrent-ruby)
+
+Other Ruby interpreters (such as JRuby, Rubinius, TruffleRuby) support parallel threads but may not have full MRI syntax compatibility
 
 ## Gems
 
