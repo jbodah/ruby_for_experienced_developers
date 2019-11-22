@@ -460,10 +460,12 @@ MyClass = Class.new
 MyClass.ancestors
 #=> [MyClass, Object, Kernel, BasicObject]
 
+# `include` inserts the module before the parent class
 MyClass.include(Module.new)
 MyClass.ancestors
 #=> [MyClass, #<Module:0x00007f97cb16de78>, Object, Kernel, BasicObject]
 
+# `prepend` inserts the module before the class itself
 MyClass.prepend(Module.new)
 MyClass.ancestors
 => [#<Module:0x00007f97cb11e918>, MyClass, #<Module:0x00007f97cb16de78>, Object, Kernel, BasicObject]
@@ -475,6 +477,7 @@ MyClass.singleton_class
 MyClass.singleton_class.ancestors
 #=> [#<Class:MyClass>, #<Class:Object>, #<Class:BasicObject>, Class, Module, Object, Kernel, BasicObject]
 
+# `extend` (like `include`) inserts the module before the parent class
 MyClass.extend(Module.new)
 MyClass.singleton_class.ancestors
 => [#<Class:MyClass>, #<Module:0x00007f97cd0858b0>, #<Class:Object>, #<Class:BasicObject>, Class, Module, Object, Kernel, BasicObject]
