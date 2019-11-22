@@ -31,7 +31,7 @@ This guide is not meant to be complete but instead to expose you to the most imp
   * [Concurrency](#concurrency)
   * [Gems](#gems)
   * [Debugging](#debugging)
-  * [Idioms, Patterns, and Conventions](#idioms-patterns-and-convetions)
+  * [Idioms, Patterns, and Conventions](#idioms-patterns-and-conventions)
   * [Code Smells and Anti-Patterns](#code-smells-and-anti-patterns)
   * [Other Resources](#other-resources)
 
